@@ -1,0 +1,9 @@
+<yawmi-calendar 
+	[lang]="'fr'"
+	[pas]= 1
+	[schedule]= "timeTable"
+	[appointed]="reserve"
+	[msg]="'Aucun créneau n\'est disponible'"
+	(weekDayEvent)="getWeekDay($event)" 
+	(getTime)="getWeekDay($event)">
+</yawmi-calendar>

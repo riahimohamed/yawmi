@@ -1,0 +1,94 @@
+<div class="content" style="min-height: 188px;">
+	<div class="container calendar" id="calendar">	
+		<div class="row">
+			<div class="col-12">
+			
+				<div class="row">
+					<div class="col-md-12 col-sm-12 month">
+						<div class="arrow">
+							<div class="left-arrow" (click)="prevButton()">
+								<a [class]="{'disable': disable}">
+									<i class="chevron left"></i>
+								</a>
+							</div>
+							
+							<div class="right-arrow" (click)="nextButton()">
+								<a>
+									<i class="chevron right"></i>
+								</a>
+							</div>
+
+							<div class="month-text">
+								<h4 class="mb-1 text-uppercase">{{ month }}</h4>
+							</div>
+						</div>
+					</div>
+                </div>
+				<!-- Schedule Widget -->
+				<div class="card booking-schedule schedule-widget">
+				
+					<!-- Schedule Header -->
+					<div class="schedule-header">
+						<div class="row">
+							<div class="col-md-12">
+							
+								<!-- Day Slot -->
+								<div class="day-slot">
+									<ul #daySlot>
+										<li *ngFor="let cell of cells; index as i"
+											[class.reserve]="appointedFilter | reservDate:cell.date"
+											[attr.month]="cell.date.day()"
+											(click)="selectElDateVal(i)" libHostlistiner>
+											<span>{{cell.date.format('ddd')}}</span>
+											<span class="slot-date">{{ cell.date.format('D') }}</span>
+											<small class="slot-year">{{ cell.date.format('MMM') }}</small>
+										</li>
+									</ul>
+								</div>
+								<!-- /Day Slot -->
+								
+							</div>
+						</div>
+					</div>
+					<!-- /Schedule Header -->
+					
+					<!-- Schedule Content -->
+					<div class="schedule-cont">
+						<div class="row">
+							<div class="col-md-12">
+							
+								<!-- Time Slot -->
+								<div class="time-slot">
+									<ul class="clearfix" #timeSlot>
+
+										<ng-template [ngIf]="!resrvFilter" [ngIfElse]="message">
+											<li *ngFor="let cell of Cellstime; index as i" 
+												(click)="selectElTimeVal(i)" libHostlistiner>
+												<a class="timing">
+													<span>{{cell.time}} </span>
+												</a>
+											</li>
+										</ng-template>
+
+										<ng-template #message>
+										    <div class="text-center">
+										    	<p *ngIf="msg">{{ msg }}</p>
+											</div>
+										</ng-template>
+										
+									</ul>
+								</div>
+								<!-- /Time Slot -->
+								
+							</div>
+						</div>
+					</div>
+					<!-- /Schedule Content -->
+					
+				</div>
+				<!-- /Schedule Widget -->
+				
+			</div>
+		</div>
+	</div>
+</div>

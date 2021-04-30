@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+.calendar{
+    font-family: "Quicksand", sans-serif;
+}
+/*-----------------
+	18. Booking
+-----------------------*/
+.booking-doc-info {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+.booking-doc-info .booking-doc-img {
+    width: 80px;
+    margin-right: 15px;
+}
+.booking-doc-info .booking-doc-img img {
+    border-radius: 4px;
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+}
+.schedule-widget {
+    border-radius: 4px;
+    min-height: 100px;
+}
+.schedule-header h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 3px 0 0;
+}
+.schedule-header {
+    border-bottom: 1px solid #f0f0f0;
+    border-radius: 4px 4px 0 0;
+    padding: 0 20px;
+}
+.day-slot ul {
+    float: left;
+    list-style: none;
+    margin-bottom: 0;
+    margin-left: -5px;
+    margin-right: -5px;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    /*display: flex;*/
+    overflow: hidden;
+}
+.day-slot li {
+    float: left;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding: 12px 0;
+    text-align: center;
+    width: 14.28%;
+    min-width: 14.28%;
+    border: 1px solid transparent;
+
+    -moz-transition: all .25s ease;
+    -webkit-transition: all .25s ease;
+    transition: all .25s ease;
+}
+.day-slot li span {
+    display: block;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+.day-slot li span.slot-date {
+    display: block;
+    color: #757575;
+    font-size: 14px;
+}
+.day-slot li small.slot-year {
+    color: #757575;
+    font-size: 14px;
+}
+.day-slot li:hover {
+    border: 1px solid #42c0fb;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.selected {
+    background-color: #42c0fb;
+    border: 1px solid #42c0fb;
+    color: #fff;
+}
+.selected .slot-year , .selected .slot-date{
+    color: #ffffff !important;
+}
+.left-arrow {
+    z-index: 10;
+}
+.right-arrow {
+    z-index: 10;
+}
+.schedule-cont {
+    padding: 20px;
+}
+.time-slot ul {
+    list-style: none;
+    margin-right: -5px;
+    margin-left: -5px;
+	margin-bottom: 0;
+    padding: 0;
+}
+.time-slot li {
+    float: left;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 14.28%;
+}
+.time-slot li .timing {
+    background-color: #e9e9e9;
+    border: 1px solid #e9e9e9;
+    border-radius: 3px;
+    color: #757575;
+    display: block;
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+	position: relative;
+}
+.time-slot li .timing:hover {
+    background-color: #fff;
+}
+.time-slot li .timing.selected {
+	background-color: #42c0fb;
+	border: 1px solid #42c0fb;
+	color: #fff;
+}
+.time-slot li .timing.selected::before {
+    color: #fff;
+    content: "\2713";
+	font-size: 20px;
+    font-weight: 900;
+    position: absolute;
+    right: 6px;
+    top: 0;
+}
+.schedule-list {
+    border-bottom: 1px solid #cfcfcf;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+}
+.schedule-list:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+	padding-bottom: 0;
+}
+.card {
+    border: 1px solid #f0f0f0;
+    margin-bottom: 1.875rem;
+}
+.submit-section.proceed-btn {
+	margin: 0 0 30px;
+}
+.chevron::before {
+  position: relative;
+  content: ' ';
+  display: inline-block;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+  height: 15px;
+  width: 15px;
+  cursor: pointer;
+}
+.chevron.right:before {
+	left: 0;
+	transform: rotate(-45deg);
+}
+.chevron.left:before {
+	left: 0.25em;
+	transform: rotate(135deg);
+}
+.arrow{
+    position: absolute;
+    padding: 15px 5px;
+    width: 99%;
+    height: 100%;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+}
+
+
+@media only screen and (max-width: 575.98px) {
+	.booking-schedule.schedule-widget {
+		overflow-x: auto;
+	}
+	.booking-schedule.schedule-widget > div {
+		width: 730px;
+	}
+	.booking-schedule .day-slot ul {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+	}
+	.booking-schedule .day-slot li {
+		-ms-flex: 0 0 100px;
+		flex: 0 0 100px;
+		width: 100px;
+	}
+	.booking-schedule .time-slot ul {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+	}
+	.booking-schedule .time-slot li {
+		-ms-flex: 0 0 100px;
+		flex: 0 0 100px;
+		width: 100px;
+	}
+	.booking-schedule .time-slot li .timing span {
+		display: inline-block;
+	}
+	.booking-schedule .day-slot li.right-arrow {
+		right: -20px;
+	}
+	.booking-doc-info .booking-doc-img {
+		width: 70px;
+	}
+	.booking-doc-info .booking-doc-img img {
+		height: 70px;
+		width: 70px;
+	}
+}

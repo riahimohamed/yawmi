@@ -1,0 +1,168 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "yawmi": {
+      "projectType": "library",
+      "root": "projects/yawmi",
+      "sourceRoot": "projects/yawmi/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/yawmi/tsconfig.lib.json",
+            "project": "projects/yawmi/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/yawmi/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/yawmi/src/test.ts",
+            "tsConfig": "projects/yawmi/tsconfig.spec.json",
+            "karmaConfig": "projects/yawmi/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/yawmi/tsconfig.lib.json",
+              "projects/yawmi/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "yawmitest": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/yawmitest",
+      "sourceRoot": "projects/yawmitest/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/yawmitest",
+            "index": "projects/yawmitest/src/index.html",
+            "main": "projects/yawmitest/src/main.ts",
+            "polyfills": "projects/yawmitest/src/polyfills.ts",
+            "tsConfig": "projects/yawmitest/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/yawmitest/src/favicon.ico",
+              "projects/yawmitest/src/assets"
+            ],
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/popper.js/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/yawmitest/src/environments/environment.ts",
+                  "with": "projects/yawmitest/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "yawmitest:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "yawmitest:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "yawmitest:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/yawmitest/src/test.ts",
+            "polyfills": "projects/yawmitest/src/polyfills.ts",
+            "tsConfig": "projects/yawmitest/tsconfig.spec.json",
+            "karmaConfig": "projects/yawmitest/karma.conf.js",
+            "assets": [
+              "projects/yawmitest/src/favicon.ico",
+              "projects/yawmitest/src/assets"
+            ],
+            "styles": [
+              "projects/yawmitest/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/yawmitest/tsconfig.app.json",
+              "projects/yawmitest/tsconfig.spec.json",
+              "projects/yawmitest/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/yawmitest/e2e/protractor.conf.js",
+            "devServerTarget": "yawmitest:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "yawmitest:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "yawmi"
+}
