@@ -101,7 +101,7 @@ export class AppComponent implements OnInit{
  timingVal: string;
  reserve: any = [];
  timeTable: any = { 
- 					"1": ['9:00', '18:30'],,
+ 					"1": ['9:00', '18:30'],
 			 		"2": ['9:00', '18:30'],
 			 		"3": ['10:00', '12:30'],
 			 		"4": ['8:30', '17:30'],
@@ -144,7 +144,7 @@ today: any = new Date();
 	[appointed]="reserve"
 	[msg]="'Aucun créneau n\'est disponible'"
 	(weekDayEvent)="getWeekDay($event)" 
-	(getTime)="getWeekDay($event)">
+	(getTime)="getTime($event)">
 </yawmi-calendar>
 
 ```
