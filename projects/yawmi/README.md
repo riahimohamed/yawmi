@@ -10,11 +10,11 @@ Appointment schedulers are business tools that allow clients choose an available
 
 `Image Scheduler Calendar`
 
-![alt text](https://github.com/riahimohamed/yawmi/tree/main/projects/yawmitest/src/assets/Appointement.jpg?raw=true)
+![alt text](https://github.com/riahimohamed/yawmi/blob/main/projects/yawmitest/src/assets/Appointement.jpg?raw=true)
 
 `Image Scheduler Calendar Reserved`
 
-![alt text](https://github.com/riahimohamed/yawmi/tree/main/projects/yawmitest/src/assets/Reserved.jpg?raw=true)
+![alt text](https://github.com/riahimohamed/yawmi/blob/main/projects/yawmitest/src/assets/Reserved.jpg?raw=true)
 
 
 ## Installation
